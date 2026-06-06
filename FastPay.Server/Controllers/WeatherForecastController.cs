@@ -1,3 +1,4 @@
+using FastPay.Server.Models;
 using Microsoft.AspNetCore.Mvc;
 
 namespace FastPay.Server.Controllers

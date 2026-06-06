@@ -1,4 +1,4 @@
-namespace FastPay.Server
+namespace FastPay.Server.Models
 {
     public class WeatherForecast
     {
