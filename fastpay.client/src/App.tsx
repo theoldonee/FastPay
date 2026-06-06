@@ -1,58 +1,36 @@
 import { useEffect, useState } from 'react';
+import { AppShell } from './app/AppShell';
+import { ROUTES, getRouteFromHash, type RouteKey } from './app/routes';
+import { DashboardPage } from './pages/DashboardPage';
+import { EmployeesPage } from './pages/EmployeesPage';
+import { PayrollCyclesPage } from './pages/PayrollCyclesPage';
+import { WorkEntriesPage } from './pages/WorkEntriesPage';
 import './App.css';
 
-interface Forecast {
-    date: string;
-    temperatureC: number;
-    temperatureF: number;
-    summary: string;
-}
-
 function App() {
-    const [forecasts, setForecasts] = useState<Forecast[]>();
+  const [activeRoute, setActiveRoute] = useState<RouteKey>(() => getRouteFromHash(window.location.hash));
 
-    useEffect(() => {
-        populateWeatherData();
-    }, []);
-
-    const contents = forecasts === undefined
-        ? <p><em>Loading... Please refresh once the ASP.NET backend has started. See <a href="https://aka.ms/jspsintegrationreact">https://aka.ms/jspsintegrationreact</a> for more details.</em></p>
-        : <table className="table table-striped" aria-labelledby="tableLabel">
-            <thead>
-                <tr>
-                    <th>Date</th>
-                    <th>Temp. (C)</th>
-                    <th>Temp. (F)</th>
-                    <th>Summary</th>
-                </tr>
-            </thead>
-            <tbody>
-                {forecasts.map(forecast =>
-                    <tr key={forecast.date}>
-                        <td>{forecast.date}</td>
-                        <td>{forecast.temperatureC}</td>
-                        <td>{forecast.temperatureF}</td>
-                        <td>{forecast.summary}</td>
-                    </tr>
-                )}
-            </tbody>
-        </table>;
-
-    return (
-        <div>
-            <h1 id="tableLabel">Weather forecast</h1>
-            <p>This component demonstrates fetching data from the server.</p>
-            {contents}
-        </div>
-    );
-
-    async function populateWeatherData() {
-        const response = await fetch('weatherforecast');
-        if (response.ok) {
-            const data = await response.json();
-            setForecasts(data);
-        }
+  useEffect(() => {
+    if (!window.location.hash) {
+      window.location.hash = '#dashboard';
     }
+
+    const handleHashChange = () => {
+      setActiveRoute(getRouteFromHash(window.location.hash));
+    };
+
+    window.addEventListener('hashchange', handleHashChange);
+    return () => window.removeEventListener('hashchange', handleHashChange);
+  }, []);
+
+  return (
+    <AppShell activeRoute={activeRoute} routes={ROUTES}>
+      {activeRoute === 'dashboard' && <DashboardPage />}
+      {activeRoute === 'employees' && <EmployeesPage />}
+      {activeRoute === 'payroll-cycles' && <PayrollCyclesPage />}
+      {activeRoute === 'work-entries' && <WorkEntriesPage />}
+    </AppShell>
+  );
 }
 
 export default App;
