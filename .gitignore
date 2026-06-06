@@ -3,6 +3,26 @@
 ##
 ## Get latest from https://github.com/github/gitignore/blob/master/VisualStudio.gitignore
 
+# Cross-platform OS metadata
+.DS_Store
+.AppleDouble
+.LSOverride
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+
+# VS Code user-specific settings (recommended extensions may be shared)
+.vscode/*
+!.vscode/extensions.json
+*.code-workspace
+
+# Local environment files and secrets
+.env
+.env.*
+!.env.example
+!.env.*.example
+
 # User-specific files
 *.rsuser
 *.suo
@@ -29,6 +49,8 @@ x86/
 bld/
 [Bb]in/
 [Oo]bj/
+# Microsoft.VisualStudio.JavaScript.Sdk can create this literal backslash path on macOS
+**/[Oo]bj\\Debug/
 [Oo]ut/
 [Ll]og/
 [Ll]ogs/
