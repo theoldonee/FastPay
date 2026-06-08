@@ -1,4 +1,5 @@
 ﻿using FastPay.Server.Contracts.Employee;
+using FastPay.Server.Services;
 using FastPay.Server.Models;
 using Microsoft.AspNetCore.Mvc;
 
@@ -9,10 +10,12 @@ namespace FastPay.Server.Controllers
     public class EmployeeController : ControllerBase
     {
         private readonly ILogger<EmployeeController> _logger;
+        private EmployeeService _employeeService;
 
         public EmployeeController(ILogger<EmployeeController> logger)
         {
             _logger = logger;
+            _employeeService = new EmployeeService();
         }
 
 
@@ -29,9 +32,17 @@ namespace FastPay.Server.Controllers
             };
 
             //Service writes to db
-
+            try
+            {
+                await _employeeService.StoreEmployee(employee);
             
-            return Ok() ;
+                return Ok() ;
+            }
+            catch
+            {
+                return NoContent();
+            }
+            
             
         }
 
