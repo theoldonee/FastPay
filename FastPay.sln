@@ -7,6 +7,8 @@ Project("{54A90642-561A-4BB1-A94E-469ADEE60C69}") = "fastpay.client", "fastpay.c
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FastPay.Server", "FastPay.Server\FastPay.Server.csproj", "{343E76C6-57B3-46CE-9CAF-987FF493942C}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FastPay.Server.Tests", "FastPay.Server.Tests\FastPay.Server.Tests.csproj", "{BEB09D73-1B37-46B0-8E76-E82137E03E0B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -23,6 +25,10 @@ Global
 		{343E76C6-57B3-46CE-9CAF-987FF493942C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{343E76C6-57B3-46CE-9CAF-987FF493942C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{343E76C6-57B3-46CE-9CAF-987FF493942C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BEB09D73-1B37-46B0-8E76-E82137E03E0B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BEB09D73-1B37-46B0-8E76-E82137E03E0B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BEB09D73-1B37-46B0-8E76-E82137E03E0B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BEB09D73-1B37-46B0-8E76-E82137E03E0B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

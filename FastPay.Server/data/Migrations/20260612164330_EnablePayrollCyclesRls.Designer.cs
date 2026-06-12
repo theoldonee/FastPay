@@ -3,6 +3,7 @@ using System;
 using FastPay.Server.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
@@ -11,9 +12,11 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace FastPay.Server.Data.Migrations
 {
     [DbContext(typeof(FastPayDbContext))]
-    partial class FastPayDbContextModelSnapshot : ModelSnapshot
+    [Migration("20260612164330_EnablePayrollCyclesRls")]
+    partial class EnablePayrollCyclesRls
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
