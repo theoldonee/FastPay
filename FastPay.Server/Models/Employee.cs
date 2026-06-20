@@ -2,7 +2,7 @@
 
 namespace FastPay.Server.Models
 {
-    public class Employee : IEmployee
+    public class Employee 
     {
         public string FirstName { get => _firstName; set => _firstName = value; }
         private string _firstName = string.Empty; 

@@ -1,0 +1,18 @@
+﻿using FastPay.Server.Contracts.Employee;
+using FastPay.Server.Models;
+namespace FastPay.Server.Services
+{
+    // set up db context
+    public class EmployeeService
+    {
+        public async Task StoreEmployee(Employee employee)
+        {
+            // throws error if failure
+        }
+
+        public async Task UpdateEmployee(UpdateEmployeeContract employeeInfo)
+        {
+            // throws error if failure
+        }
+    }
+}
