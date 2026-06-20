@@ -46,5 +46,23 @@ namespace FastPay.Server.Controllers
             
         }
 
+        [HttpPatch]
+        public async Task<IActionResult> UpdateEmployee(UpdateEmployeeContract employeeInfo)
+        {
+
+            // service writes to db
+            try
+            {
+                await _employeeService.UpdateEmployee(employeeInfo);
+                return Ok();
+            }
+            catch
+            {
+                return StatusCode(StatusCodes.Status500InternalServerError, "An error occured while updating info");
+            }
+
+
+        }
+
     }
 }

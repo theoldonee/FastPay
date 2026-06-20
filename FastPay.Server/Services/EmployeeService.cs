@@ -1,4 +1,5 @@
-﻿using FastPay.Server.Models;
+﻿using FastPay.Server.Contracts.Employee;
+using FastPay.Server.Models;
 namespace FastPay.Server.Services
 {
     // set up db context
@@ -9,7 +10,7 @@ namespace FastPay.Server.Services
             // throws error if failure
         }
 
-        public async Task UpdateEmployee(Employee employee)
+        public async Task UpdateEmployee(UpdateEmployeeContract employeeInfo)
         {
             // throws error if failure
         }
